@@ -691,7 +691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PLAYER
   rigidbody: {fileID: 929487172}
   speed: 12
-  jumpspeed: 1000
+  jumpspeed: 10
   rotationSpeed: 12
 --- !u!54 &929487172
 Rigidbody:
@@ -940,7 +940,7 @@ GameObject:
   - component: {fileID: 1861076760}
   - component: {fileID: 1861076759}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: GROUND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
