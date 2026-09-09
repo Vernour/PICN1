@@ -56,7 +56,7 @@ public class PLAYER : MonoBehaviour
 
         if (Keyboard.current.spaceKey.IsPressed()&& canJump)
         {
-            rigidbody.AddForce(Vector3.up * jumpspeed * Time.deltaTime, ForceMode.Impulse);
+            rigidbody.AddForce(Vector3.up * jumpspeed, ForceMode.Impulse);
 
         }
 
