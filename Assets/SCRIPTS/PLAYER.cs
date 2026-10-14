@@ -8,10 +8,13 @@ public class PLAYER : MonoBehaviour
     public float jumpspeed = 12;
     public float rotationSpeed = 12;
     bool canJump = false;
+    Vector3 initialPosition;
+    public GameObject canvas;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Debug.Log("Hi:D");
+        initialPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -57,18 +60,27 @@ public class PLAYER : MonoBehaviour
         if (Keyboard.current.spaceKey.IsPressed()&& canJump)
         {
             rigidbody.AddForce(Vector3.up * jumpspeed, ForceMode.Impulse);
-
+            canJump = false;
         }
 
     }
     private void OnCollisionEnter(Collision Collision)
     {
 
-        if (Collision.gameObject.name == "GROUND")
+        if (Collision.gameObject.tag == "GROUND")
         {
             canJump = true;
 
         }
+        if (Collision.gameObject.name == "killzone")
+        {
+            transform.position = initialPosition;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        canvas.SetActive(true);
     }
 
     private void OnCollisionExit(Collision Collision)
